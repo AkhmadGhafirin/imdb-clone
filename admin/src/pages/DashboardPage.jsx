@@ -1,9 +1,8 @@
-import MovieTable from "../components/MovieTable";
+import { MovieTable } from "../components";
 import { Container } from "react-bootstrap";
-import MovieFormPage from "./MovieFormPage";
 import useFetch from "../hooks/useFetch";
 
-export default function DashboardPage() {
+const DashboardPage = () => {
   const { data, loading } = useFetch("movies");
 
   if (loading) {
@@ -19,8 +18,9 @@ export default function DashboardPage() {
       <Container fluid className="p-4">
         <h3>Movie List</h3>
         <MovieTable movies={data} />
-        <MovieFormPage />
       </Container>
     </>
   );
-}
+};
+
+export default DashboardPage;

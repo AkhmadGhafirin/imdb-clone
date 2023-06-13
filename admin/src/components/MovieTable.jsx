@@ -1,6 +1,6 @@
 import Table from "react-bootstrap/Table";
 
-export default function MovieTable({ movies }) {
+const MovieTable = ({ movies }) => {
   return (
     <Table responsive bordered>
       <thead>
@@ -11,7 +11,7 @@ export default function MovieTable({ movies }) {
           <th>Genre</th>
           <th>Author</th>
           <th>Image</th>
-          <th style={{width:50}}>Actions</th>
+          <th style={{ width: 50 }}>Actions</th>
         </tr>
       </thead>
       <tbody>
@@ -23,12 +23,18 @@ export default function MovieTable({ movies }) {
             <td>{movie.genreId}</td>
             <td>{movie.authorId}</td>
             <td>
-              <img className="img-fluid" src={movie.imgUrl} />
+              <img
+                className="img-fluid"
+                style={{ height: "200px", width: "500px" }}
+                src={movie.imgUrl}
+              />
             </td>
             <td>
-              <div className="d-flex flex-column justify-content-between">
-                <button className="btn btn-outline-warning" style={{width:100}} type="button">Edit</button>
-                <button className="btn btn-outline-danger mt-5" style={{width:100}} type="button">Delete</button>
+              <div className="d-flex justify-content-center">
+                <p className="flex-fill me-2 text-warning fw-semibold align-items-center">
+                  Edit
+                </p>
+                <p className="flex-fill ms-2 text-danger fw-semibold">Delete</p>
               </div>
             </td>
           </tr>
@@ -36,4 +42,6 @@ export default function MovieTable({ movies }) {
       </tbody>
     </Table>
   );
-}
+};
+
+export default MovieTable;

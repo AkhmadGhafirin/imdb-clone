@@ -1,6 +1,6 @@
 import { Card } from "react-bootstrap";
 
-export default function MovieCard({ movie }) {
+const MovieCard = ({ movie }) => {
   return (
     <>
       <div className="col-lg-3 col-md-6 mb-4">
@@ -22,4 +22,6 @@ export default function MovieCard({ movie }) {
       </div>
     </>
   );
-}
+};
+
+export default MovieCard;
