@@ -1,99 +1,109 @@
 {
-    "movies": [
-        {
-            "id": 1,
-            "title": "Avengers: Endgame",
-            "slug": "avengers-endgame",
-            "synopsis": "Miles Morales returns for the next chapter of the Oscar®-winning Spider-Verse saga, an epic adventure that will transport Brooklyn's full-time, friendly neighborhood Spider-Man across the Multiverse to join forces with Gwen Stacy and a new team of Spider-People to face off with a villain more powerful than anything they have ever encountered.",
-            "trailerUrl": "https://www.youtube.com/watch?v=shW9i6k8cB0",
-            "imgUrl": "https://resizing.flixster.com/Kcw4PRHpIZSeBjo0FbhVwxQ7vdA=/206x305/v2/https://resizing.flixster.com/abVYM20-_8hBgvl4VJTC_28L0Tw=/ems.cHJkLWVtcy1hc3NldHMvbW92aWVzL2YzNTQxM2E4LTUzYmYtNGI3MS1iM2FmLWJjYTFmOWZjMDYzNS5qcGc=",
-            "rating": 96,
-            "genreId": 1,
-            "authorId": 1,
-            "createdAt": "2023-06-07 16:55:15.003 +0700",
-            "updatedAt": "2023-06-07 16:55:15.003 +0700"
-        },
-        {
-            "id": 2,
-            "title": "SPIDER-MAN: ACROSS THE SPIDER-VERSE",
-            "slug": "spider-man-across-the-spider-verse",
-            "synopsis": "Miles Morales returns for the next chapter of the Oscar®-winning Spider-Verse saga, an epic adventure that will transport Brooklyn's full-time, friendly neighborhood Spider-Man across the Multiverse to join forces with Gwen Stacy and a new team of Spider-People to face off with a villain more powerful than anything they have ever encountered.",
-            "trailerUrl": "https://www.youtube.com/watch?v=shW9i6k8cB0",
-            "imgUrl": "https://resizing.flixster.com/Kcw4PRHpIZSeBjo0FbhVwxQ7vdA=/206x305/v2/https://resizing.flixster.com/abVYM20-_8hBgvl4VJTC_28L0Tw=/ems.cHJkLWVtcy1hc3NldHMvbW92aWVzL2YzNTQxM2E4LTUzYmYtNGI3MS1iM2FmLWJjYTFmOWZjMDYzNS5qcGc=",
-            "rating": 96,
-            "genreId": 1,
-            "authorId": 1,
-            "createdAt": "2023-06-07 16:55:15.003 +0700",
-            "updatedAt": "2023-06-07 16:55:15.003 +0700"
-        },
-        {
-            "id": 3,
-            "title": "GUARDIANS OF THE GALAXY VOL. 3",
-            "slug": "guardians-of-the-galaxy-vol-3",
-            "synopsis": "In Marvel Studios \"Guardians of the Galaxy Vol. 3\" our beloved band of misfits are looking a bit different these days. Peter Quill, still reeling from the loss of Gamora, must rally his team around him to defend the universe along with protecting one of their own. A mission that, if not completed successfully, could quite possibly lead to the end of the Guardians as we know them.",
-            "trailerUrl": "https://www.youtube.com/watch?v=shW9i6k8cB0",
-            "imgUrl": "https://resizing.flixster.com/7BvHbqYVikal2I8DAX-HnNSdrdU=/206x305/v2/https://resizing.flixster.com/p8g-u3ZgPuxrg4x7aq1tidyffGg=/ems.cHJkLWVtcy1hc3NldHMvbW92aWVzL2FiZDg0OTc0LWVkMTktNDVhYS05ODljLTNkMjYxMjA0OTdjMy5qcGc=",
-            "rating": 82,
-            "genreId": 2,
-            "authorId": 1,
-            "createdAt": "2023-06-07 16:55:15.003 +0700",
-            "updatedAt": "2023-06-07 16:55:15.003 +0700"
-        },
-        {
-            "id": 4,
-            "title": "Doctor Strange in the Multiverse of Madness",
-            "slug": "doctor-strange-in-the-multiverse-of-madness",
-            "synopsis": "In Marvel Studios \"Guardians of the Galaxy Vol. 3\" our beloved band of misfits are looking a bit different these days. Peter Quill, still reeling from the loss of Gamora, must rally his team around him to defend the universe along with protecting one of their own. A mission that, if not completed successfully, could quite possibly lead to the end of the Guardians as we know them.",
-            "trailerUrl": "https://www.youtube.com/watch?v=shW9i6k8cB0",
-            "imgUrl": "https://resizing.flixster.com/7BvHbqYVikal2I8DAX-HnNSdrdU=/206x305/v2/https://resizing.flixster.com/p8g-u3ZgPuxrg4x7aq1tidyffGg=/ems.cHJkLWVtcy1hc3NldHMvbW92aWVzL2FiZDg0OTc0LWVkMTktNDVhYS05ODljLTNkMjYxMjA0OTdjMy5qcGc=",
-            "rating": 82,
-            "genreId": 2,
-            "authorId": 1,
-            "createdAt": "2023-06-07 16:55:15.003 +0700",
-            "updatedAt": "2023-06-07 16:55:15.003 +0700"
-        }
-    ],
-    "genres": [
-        {
-            "id": 1,
-            "name": "Comedy",
-            "createdAt": "2023-06-07 16:55:15.003 +0700",
-            "updatedAt": "2023-06-07 16:55:15.003 +0700"
-        },
-        {
-            "id": 2,
-            "name": "Action",
-            "createdAt": "2023-06-07 16:55:15.003 +0700",
-            "updatedAt": "2023-06-07 16:55:15.003 +0700"
-        }
-    ],
-    "casts": [
-        {
-            "id": 1,
-            "movieId": 1,
-            "name": "Elizabeth Olsen",
-            "profilePict": "https://m.media-amazon.com/images/M/MV5BMjEzMjA0ODk1OF5BMl5BanBnXkFtZTcwMTA4ODM3OQ@@._V1_.jpg",
-            "createdAt": "2023-06-07 16:55:15.003 +0700",
-            "updatedAt": "2023-06-07 16:55:15.003 +0700"
-        },
-        {
-            "id": 2,
-            "movieId": 2,
-            "name": "Chris Evans",
-            "profilePict": "https://m.media-amazon.com/images/M/MV5BMTU2NTg1OTQzMF5BMl5BanBnXkFtZTcwNjIyMjkyMg@@._V1_FMjpg_UX1000_.jpg",
-            "createdAt": "2023-06-07 16:55:15.003 +0700",
-            "updatedAt": "2023-06-07 16:55:15.003 +0700"
-        }
-    ],
-    "users": [
-        {
-            "id": 1,
-            "username": "admin",
-            "email": "admin@mail.com",
-            "password": "12345",
-            "role": "admin",
-            "phoneNumber": "0812342133",
-            "address": "bsd"
-        }
-    ]
+  "movies": [
+    {
+      "id": 1,
+      "title": "Avengers: Endgame",
+      "slug": "avengers-endgame",
+      "synopsis": "Miles Morales returns for the next chapter of the Oscar®-winning Spider-Verse saga, an epic adventure that will transport Brooklyn's full-time, friendly neighborhood Spider-Man across the Multiverse to join forces with Gwen Stacy and a new team of Spider-People to face off with a villain more powerful than anything they have ever encountered.",
+      "trailerUrl": "https://www.youtube.com/watch?v=shW9i6k8cB0",
+      "imgUrl": "https://resizing.flixster.com/Kcw4PRHpIZSeBjo0FbhVwxQ7vdA=/206x305/v2/https://resizing.flixster.com/abVYM20-_8hBgvl4VJTC_28L0Tw=/ems.cHJkLWVtcy1hc3NldHMvbW92aWVzL2YzNTQxM2E4LTUzYmYtNGI3MS1iM2FmLWJjYTFmOWZjMDYzNS5qcGc=",
+      "rating": 96,
+      "genreId": 1,
+      "authorId": 1,
+      "createdAt": "2023-06-07 16:55:15.003 +0700",
+      "updatedAt": "2023-06-07 16:55:15.003 +0700"
+    },
+    {
+      "id": 2,
+      "title": "SPIDER-MAN: ACROSS THE SPIDER-VERSE",
+      "slug": "spider-man-across-the-spider-verse",
+      "synopsis": "Miles Morales returns for the next chapter of the Oscar®-winning Spider-Verse saga, an epic adventure that will transport Brooklyn's full-time, friendly neighborhood Spider-Man across the Multiverse to join forces with Gwen Stacy and a new team of Spider-People to face off with a villain more powerful than anything they have ever encountered.",
+      "trailerUrl": "https://www.youtube.com/watch?v=shW9i6k8cB0",
+      "imgUrl": "https://resizing.flixster.com/Kcw4PRHpIZSeBjo0FbhVwxQ7vdA=/206x305/v2/https://resizing.flixster.com/abVYM20-_8hBgvl4VJTC_28L0Tw=/ems.cHJkLWVtcy1hc3NldHMvbW92aWVzL2YzNTQxM2E4LTUzYmYtNGI3MS1iM2FmLWJjYTFmOWZjMDYzNS5qcGc=",
+      "rating": 96,
+      "genreId": 1,
+      "authorId": 1,
+      "createdAt": "2023-06-07 16:55:15.003 +0700",
+      "updatedAt": "2023-06-07 16:55:15.003 +0700"
+    },
+    {
+      "id": 3,
+      "title": "GUARDIANS OF THE GALAXY VOL. 3",
+      "slug": "guardians-of-the-galaxy-vol-3",
+      "synopsis": "In Marvel Studios \"Guardians of the Galaxy Vol. 3\" our beloved band of misfits are looking a bit different these days. Peter Quill, still reeling from the loss of Gamora, must rally his team around him to defend the universe along with protecting one of their own. A mission that, if not completed successfully, could quite possibly lead to the end of the Guardians as we know them.",
+      "trailerUrl": "https://www.youtube.com/watch?v=shW9i6k8cB0",
+      "imgUrl": "https://resizing.flixster.com/7BvHbqYVikal2I8DAX-HnNSdrdU=/206x305/v2/https://resizing.flixster.com/p8g-u3ZgPuxrg4x7aq1tidyffGg=/ems.cHJkLWVtcy1hc3NldHMvbW92aWVzL2FiZDg0OTc0LWVkMTktNDVhYS05ODljLTNkMjYxMjA0OTdjMy5qcGc=",
+      "rating": 82,
+      "genreId": 2,
+      "authorId": 1,
+      "createdAt": "2023-06-07 16:55:15.003 +0700",
+      "updatedAt": "2023-06-07 16:55:15.003 +0700"
+    },
+    {
+      "title": "sdad",
+      "synopsis": "dada",
+      "imgUrl": "dadadad",
+      "trailerUrl": "dadasd",
+      "rating": "2",
+      "genreId": "Comedy",
+      "authorId": "John",
+      "id": 5
+    },
+    {
+      "id": 4,
+      "title": "Doctor Strange in the Multiverse of Madness",
+      "slug": "doctor-strange-in-the-multiverse-of-madness",
+      "synopsis": "In Marvel Studios \"Guardians of the Galaxy Vol. 3\" our beloved band of misfits are looking a bit different these days. Peter Quill, still reeling from the loss of Gamora, must rally his team around him to defend the universe along with protecting one of their own. A mission that, if not completed successfully, could quite possibly lead to the end of the Guardians as we know them.",
+      "trailerUrl": "https://www.youtube.com/watch?v=shW9i6k8cB0",
+      "imgUrl": "https://resizing.flixster.com/7BvHbqYVikal2I8DAX-HnNSdrdU=/206x305/v2/https://resizing.flixster.com/p8g-u3ZgPuxrg4x7aq1tidyffGg=/ems.cHJkLWVtcy1hc3NldHMvbW92aWVzL2FiZDg0OTc0LWVkMTktNDVhYS05ODljLTNkMjYxMjA0OTdjMy5qcGc=",
+      "rating": 82,
+      "genreId": 2,
+      "authorId": 1,
+      "createdAt": "2023-06-07 16:55:15.003 +0700",
+      "updatedAt": "2023-06-07 16:55:15.003 +0700"
+    }
+  ],
+  "genres": [
+    {
+      "id": 1,
+      "name": "Comedy",
+      "createdAt": "2023-06-07 16:55:15.003 +0700",
+      "updatedAt": "2023-06-07 16:55:15.003 +0700"
+    },
+    {
+      "id": 2,
+      "name": "Action",
+      "createdAt": "2023-06-07 16:55:15.003 +0700",
+      "updatedAt": "2023-06-07 16:55:15.003 +0700"
+    }
+  ],
+  "casts": [
+    {
+      "id": 1,
+      "movieId": 1,
+      "name": "Elizabeth Olsen",
+      "profilePict": "https://m.media-amazon.com/images/M/MV5BMjEzMjA0ODk1OF5BMl5BanBnXkFtZTcwMTA4ODM3OQ@@._V1_.jpg",
+      "createdAt": "2023-06-07 16:55:15.003 +0700",
+      "updatedAt": "2023-06-07 16:55:15.003 +0700"
+    },
+    {
+      "id": 2,
+      "movieId": 2,
+      "name": "Chris Evans",
+      "profilePict": "https://m.media-amazon.com/images/M/MV5BMTU2NTg1OTQzMF5BMl5BanBnXkFtZTcwNjIyMjkyMg@@._V1_FMjpg_UX1000_.jpg",
+      "createdAt": "2023-06-07 16:55:15.003 +0700",
+      "updatedAt": "2023-06-07 16:55:15.003 +0700"
+    }
+  ],
+  "users": [
+    {
+      "id": 1,
+      "username": "admin",
+      "email": "admin@mail.com",
+      "password": "12345",
+      "role": "admin",
+      "phoneNumber": "0812342133",
+      "address": "bsd"
+    }
+  ]
 }
