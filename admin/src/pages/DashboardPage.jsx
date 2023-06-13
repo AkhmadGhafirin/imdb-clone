@@ -1,4 +1,4 @@
-import { MovieTable } from "../components";
+import { Loading, MovieTable } from "../components";
 import { Container } from "react-bootstrap";
 import useFetch from "../hooks/useFetch";
 
@@ -6,11 +6,7 @@ const DashboardPage = () => {
   const { data, loading } = useFetch("movies");
 
   if (loading) {
-    return (
-      <>
-        <p>Loading...</p>
-      </>
-    );
+    return <Loading />;
   }
 
   return (

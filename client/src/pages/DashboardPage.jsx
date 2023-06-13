@@ -1,9 +1,14 @@
-import { MovieCard } from "../components";
+import { MovieCard, Loading } from "../components";
 import useFetch from "../hooks/useFetch";
 import { Container, Row } from "react-bootstrap";
 
 const DashboardPage = () => {
   const { data, loading } = useFetch("movies");
+
+  if (loading) {
+    return <Loading />;
+  }
+
   return (
     <>
       <Container className="py-4">
