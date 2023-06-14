@@ -2,7 +2,15 @@ import { Button, Col, Form, Row, Container } from "react-bootstrap";
 import { useState } from "react";
 
 const MovieFormPage = () => {
-  const [form, setForm] = useState({});
+  const [form, setForm] = useState({
+    title: "",
+    synopsis: "",
+    imgUrl: "",
+    trailerUrl: "",
+    rating: "",
+    genreId: "",
+    authorId: "",
+  });
 
   const handleSubmit = async (e) => {
     e.preventDefault();
