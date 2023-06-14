@@ -15,7 +15,7 @@ const MovieTable = ({ movies }) => {
         </tr>
       </thead>
       <tbody>
-        {movies.map((movie) => (
+        {movies?.map((movie) => (
           <tr key={movie.id}>
             <td>{movie.id}</td>
             <td>{movie.title}</td>

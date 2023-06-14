@@ -9,6 +9,7 @@ const initialState = {
 const movieReducer = (state = initialState, action) => {
     switch (action.type) {
         case MOVIES_SUCCESS:
+            console.log(action.payload, '<<<<< movie store');
             return {
                 ...state,
                 movies: action.payload,
