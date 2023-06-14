@@ -39,6 +39,7 @@ const MovieFormPage = () => {
             <Form.Label>Title</Form.Label>
             <Form.Control
               name="title"
+              autoComplete="off"
               value={form?.title}
               onChange={handleOnChange}
               type="text"
@@ -53,6 +54,7 @@ const MovieFormPage = () => {
               placeholder="Enter Synopsis"
               name="synopsis"
               value={form?.synopsis}
+              autoComplete="off"
               required
               onChange={handleOnChange}
             />
@@ -65,6 +67,7 @@ const MovieFormPage = () => {
               name="imgUrl"
               value={form?.imgUrl}
               required
+              autoComplete="off"
               onChange={handleOnChange}
             />
           </Form.Group>
@@ -76,6 +79,7 @@ const MovieFormPage = () => {
               name="trailerUrl"
               value={form?.trailerUrl}
               required
+              autoComplete="off"
               onChange={handleOnChange}
             />
           </Form.Group>

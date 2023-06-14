@@ -44,6 +44,7 @@ const LoginPage = () => {
                     placeholder="Enter your email"
                     value={form?.email}
                     name="email"
+                    autoComplete="off"
                     required
                     onChange={handleOnChange}
                   />
@@ -55,6 +56,7 @@ const LoginPage = () => {
                       type={showPassword ? "text" : "password"}
                       placeholder="Enter your password"
                       required
+                      autoComplete="off"
                       name="password"
                       value={form?.password}
                       onChange={handleOnChange}
