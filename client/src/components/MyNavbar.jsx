@@ -1,29 +1,22 @@
-import { Container, Nav, Navbar } from "react-bootstrap";
+import { Container, Navbar } from "react-bootstrap";
+import { useNavigate } from "react-router-dom";
 
-export default function MyNavbar() {
+const MyNavbar = () => {
+  const navigate = useNavigate();
   return (
     <>
       <Navbar bg="dark" variant="dark" className="shadow">
         <Container fluid>
-          <Navbar.Brand href="#home">
-            <strong>Admin</strong>
+          <Navbar.Brand
+            onClick={() => navigate("/")}
+            style={{ cursor: "pointer" }}
+          >
+            <strong>Imdb</strong>
           </Navbar.Brand>
-          <Nav className="me-auto">
-            <Nav.Link style={{ color: "white" }} href="#home">
-              Dashboard
-            </Nav.Link>
-            <Nav.Link style={{ color: "white" }} href="#features">
-              Genre
-            </Nav.Link>
-            <Nav.Link style={{ color: "white" }} href="#features">
-              Register Admin
-            </Nav.Link>
-            <Nav.Link style={{ color: "white" }} href="#pricing">
-              Logout
-            </Nav.Link>
-          </Nav>
         </Container>
       </Navbar>
     </>
   );
-}
+};
+
+export default MyNavbar;

@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react"
-import BASE_URL from '../config/api'
+import { BASE_URL } from '../config/api'
 
 const useFetch = (url) => {
     const [loading, setLoading] = useState(false)

@@ -1,13 +1,16 @@
-import MovieCard from "../components/MovieCard";
-import MyNavbar from "../components/MyNavbar";
+import { MovieCard, Loading } from "../components";
 import useFetch from "../hooks/useFetch";
 import { Container, Row } from "react-bootstrap";
 
-export default function DashboardPage() {
+const DashboardPage = () => {
   const { data, loading } = useFetch("movies");
+
+  if (loading) {
+    return <Loading />;
+  }
+
   return (
     <>
-      <MyNavbar />
       <Container className="py-4">
         <Row>
           {data.map((movie) => (
@@ -17,4 +20,6 @@ export default function DashboardPage() {
       </Container>
     </>
   );
-}
+};
+
+export default DashboardPage;

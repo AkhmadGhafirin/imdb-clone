@@ -1,16 +1,8 @@
-import MyNavbar from "./components/MyNavbar";
-import LoginPage from "./pages/LoginPage";
-import DashboardPage from "./pages/DashboardPage";
-import { Container } from "react-bootstrap";
+import { RouterProvider } from "react-router-dom";
+import router from "./router";
 
 function App() {
-  return (
-    <>
-      <MyNavbar />
-      {/* <LoginPage /> */}
-      <DashboardPage />
-    </>
-  );
+  return <RouterProvider router={router} />;
 }
 
 export default App;
