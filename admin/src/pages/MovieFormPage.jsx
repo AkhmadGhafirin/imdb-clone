@@ -33,12 +33,13 @@ const MovieFormPage = () => {
 
   return (
     <>
-      <Container className="py-5">
+      <Container className="py-3">
         <Form onSubmit={handleSubmit}>
           <Form.Group className="mb-3">
             <Form.Label>Title</Form.Label>
             <Form.Control
               name="title"
+              autoComplete="off"
               value={form?.title}
               onChange={handleOnChange}
               type="text"
@@ -53,6 +54,7 @@ const MovieFormPage = () => {
               placeholder="Enter Synopsis"
               name="synopsis"
               value={form?.synopsis}
+              autoComplete="off"
               required
               onChange={handleOnChange}
             />
@@ -65,6 +67,7 @@ const MovieFormPage = () => {
               name="imgUrl"
               value={form?.imgUrl}
               required
+              autoComplete="off"
               onChange={handleOnChange}
             />
           </Form.Group>
@@ -76,6 +79,7 @@ const MovieFormPage = () => {
               name="trailerUrl"
               value={form?.trailerUrl}
               required
+              autoComplete="off"
               onChange={handleOnChange}
             />
           </Form.Group>
@@ -111,21 +115,6 @@ const MovieFormPage = () => {
                 <option value="">Choose...</option>
                 <option value="1">Comedy</option>
                 <option value="2">Action</option>
-              </Form.Select>
-            </Form.Group>
-
-            <Form.Group as={Col}>
-              <Form.Label>Author</Form.Label>
-              <Form.Select
-                defaultValue="Choose..."
-                name="authorId"
-                required
-                value={form?.authorId}
-                onChange={handleOnChange}
-              >
-                <option value="">Choose...</option>
-                <option value="1">John</option>
-                <option value="2">Andy</option>
               </Form.Select>
             </Form.Group>
           </Row>

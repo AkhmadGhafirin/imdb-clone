@@ -1,4 +1,10 @@
-import { DashboardPage, MovieFormPage, LoginPage } from "../pages";
+import {
+  DashboardPage,
+  MovieFormPage,
+  LoginPage,
+  GenresPage,
+  RegisterPage,
+} from "../pages";
 import Layout from "../components/Layout";
 import { createBrowserRouter, redirect } from "react-router-dom";
 const router = createBrowserRouter([
@@ -17,8 +23,20 @@ const router = createBrowserRouter([
         element: <DashboardPage />,
       },
       {
-        path: "movie/add",
+        path: "movies/add",
         element: <MovieFormPage />,
+      },
+      {
+        path: "movies/edit/:id",
+        element: <MovieFormPage />,
+      },
+      {
+        path: "genres",
+        element: <GenresPage />,
+      },
+      {
+        path: "register",
+        element: <RegisterPage />,
       },
     ],
   },

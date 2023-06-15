@@ -1,3 +1,5 @@
 export { default as DashboardPage } from './DashboardPage'
 export { default as LoginPage } from './LoginPage'
 export { default as MovieFormPage } from './MovieFormPage'
+export { default as GenresPage } from './GenresPage'
+export { default as RegisterPage } from './RegisterPage'

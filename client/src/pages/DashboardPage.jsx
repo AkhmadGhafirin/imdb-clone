@@ -1,9 +1,16 @@
 import { MovieCard, Loading } from "../components";
-import useFetch from "../hooks/useFetch";
 import { Container, Row } from "react-bootstrap";
+import { useDispatch, useSelector } from "react-redux";
+import { useEffect } from "react";
+import { fetchMovies, fetchMovieDetail } from "../store/action/movies";
 
 const DashboardPage = () => {
-  const { data, loading } = useFetch("movies");
+  const { movies, loading, error } = useSelector((state) => state);
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(fetchMovies());
+  }, []);
 
   if (loading) {
     return <Loading />;
@@ -13,7 +20,7 @@ const DashboardPage = () => {
     <>
       <Container className="py-4">
         <Row>
-          {data.map((movie) => (
+          {movies?.map((movie) => (
             <MovieCard key={movie.id} movie={movie} />
           ))}
         </Row>

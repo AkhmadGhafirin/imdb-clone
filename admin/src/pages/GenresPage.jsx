@@ -1,15 +1,15 @@
-import { Loading, MovieRow } from "../components";
+import { Loading, GenreRow } from "../components";
 import { Container, Table } from "react-bootstrap";
 import { useDispatch, useSelector } from "react-redux";
 import { useEffect } from "react";
-import { fetchMovies } from "../store/action/movies";
+import { fetchGenres } from "../store/action/genres";
 
-const DashboardPage = () => {
-  const { movies, loading, error } = useSelector((state) => state.movies);
+const GenresPage = () => {
+  const { genres, loading, error } = useSelector((state) => state.genres);
   const dispatch = useDispatch();
 
   useEffect(() => {
-    dispatch(fetchMovies());
+    dispatch(fetchGenres());
   }, []);
 
   if (loading) {
@@ -24,17 +24,13 @@ const DashboardPage = () => {
           <thead>
             <tr>
               <th>Id</th>
-              <th>Title</th>
-              <th>Synopsis</th>
-              <th>Genre</th>
-              <th>Author</th>
-              <th>Image</th>
+              <th>Name</th>
               <th>Actions</th>
             </tr>
           </thead>
           <tbody>
-            {movies?.map((movie, index) => (
-              <MovieRow key={movie.id} movie={movie} index={index} />
+            {genres?.map((genre, index) => (
+              <GenreRow key={genre.id} movie={genre} index={index} />
             ))}
           </tbody>
         </Table>
@@ -43,4 +39,4 @@ const DashboardPage = () => {
   );
 };
 
-export default DashboardPage;
+export default GenresPage;
