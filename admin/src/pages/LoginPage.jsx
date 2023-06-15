@@ -30,56 +30,58 @@ const LoginPage = () => {
   };
 
   return (
-    <div className="container py-5">
-      <div className="row justify-content-center mt-5">
-        <div className="col-lg-4">
-          <Card>
-            <Card.Body>
-              <Card.Title className="text-center">Log In</Card.Title>
-              <Form onSubmit={handleSubmit}>
-                <Form.Group>
-                  <Form.Label>Email</Form.Label>
-                  <Form.Control
-                    type="email"
-                    placeholder="Enter your email"
-                    value={form?.email}
-                    name="email"
-                    autoComplete="off"
-                    required
-                    onChange={handleOnChange}
-                  />
-                </Form.Group>
-                <Form.Group>
-                  <Form.Label>Password</Form.Label>
-                  <div className="input-group">
+    <>
+      <div className="container py-5">
+        <div className="row justify-content-center mt-5">
+          <div className="col-lg-4">
+            <Card>
+              <Card.Body>
+                <Card.Title className="text-center">Log In</Card.Title>
+                <Form onSubmit={handleSubmit}>
+                  <Form.Group>
+                    <Form.Label>Email</Form.Label>
                     <Form.Control
-                      type={showPassword ? "text" : "password"}
-                      placeholder="Enter your password"
-                      required
+                      type="email"
+                      placeholder="Enter your email"
+                      value={form?.email}
+                      name="email"
                       autoComplete="off"
-                      name="password"
-                      value={form?.password}
+                      required
                       onChange={handleOnChange}
                     />
-                    <Button
-                      variant="outline-secondary"
-                      onClick={toggleShowPassword}
-                    >
-                      {showPassword ? "Hide" : "Show"}
+                  </Form.Group>
+                  <Form.Group className="mt-2">
+                    <Form.Label>Password</Form.Label>
+                    <div className="input-group">
+                      <Form.Control
+                        type={showPassword ? "text" : "password"}
+                        placeholder="Enter your password"
+                        required
+                        autoComplete="off"
+                        name="password"
+                        value={form?.password}
+                        onChange={handleOnChange}
+                      />
+                      <Button
+                        variant="outline-dark"
+                        onClick={toggleShowPassword}
+                      >
+                        {showPassword ? "Hide" : "Show"}
+                      </Button>
+                    </div>
+                  </Form.Group>
+                  <div className="text-center mt-3">
+                    <Button className="w-100" type="submit" variant="dark">
+                      Log In
                     </Button>
                   </div>
-                </Form.Group>
-                <div className="text-center mt-3">
-                  <Button className="w-100" type="submit" variant="dark">
-                    Log In
-                  </Button>
-                </div>
-              </Form>
-            </Card.Body>
-          </Card>
+                </Form>
+              </Card.Body>
+            </Card>
+          </div>
         </div>
       </div>
-    </div>
+    </>
   );
 };
 

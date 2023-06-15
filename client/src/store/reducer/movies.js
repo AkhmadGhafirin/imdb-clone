@@ -1,44 +1,47 @@
 import {
-    GENRES_ERROR,
-    GENRES_LOADING,
-    GENRES_SUCCESS,
-    GENRE_CREATE_ERROR,
-    GENRE_CREATE_LOADING,
-    GENRE_CREATE_SUCCESS
-} from "../action/types"
+    MOVIES_ERROR,
+    MOVIES_LOADING,
+    MOVIES_SUCCESS,
+    MOVIE_ERROR,
+    MOVIE_LOADING,
+    MOVIE_SUCCESS
+} from "../action/types";
 
 const initialState = {
-    genres: [],
+    movies: [],
+    movie: {},
     loading: false,
     error: ''
 }
 
-const genreReducer = (state = initialState, action) => {
+const movieReducer = (state = initialState, action) => {
     switch (action.type) {
-        case GENRES_SUCCESS:
+        case MOVIES_SUCCESS:
             return {
                 ...state,
-                genres: action.payload,
+                movies: action.payload,
                 error: '',
                 loading: false
             }
-        case GENRE_CREATE_SUCCESS:
+        case MOVIE_SUCCESS:
             return {
                 ...state,
-                genres: [],
+                movies: [],
+                movie: action.payload,
                 error: '',
                 loading: false
             }
-        case GENRES_ERROR:
-        case GENRE_CREATE_ERROR:
+        case MOVIES_ERROR:
+        case MOVIE_ERROR:
             return {
                 ...state,
-                genres: [],
+                movies: [],
+                movie: {},
                 error: action.payload,
                 loading: false
             }
-        case GENRES_LOADING:
-        case GENRE_CREATE_LOADING:
+        case MOVIES_LOADING:
+        case MOVIE_LOADING:
             return {
                 ...state,
                 error: '',
@@ -49,4 +52,4 @@ const genreReducer = (state = initialState, action) => {
     }
 }
 
-export default genreReducer
+export default movieReducer

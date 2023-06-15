@@ -12,18 +12,10 @@ import {
     MOVIE_UPDATE_LOADING
 } from "./types";
 
-// export const fetchMoviesSuccess = (payload) => ({
-//     type: MOVIES_SUCCESS,
-//     payload
-// })
-
-export const fetchMoviesSuccess = (payload) => {
-    console.log(payload, '<<<<< movie action >>>>>');
-    return {
-        type: MOVIES_SUCCESS,
-        payload
-    }
-}
+export const fetchMoviesSuccess = (payload) => ({
+    type: MOVIES_SUCCESS,
+    payload
+})
 
 export const fetchMoviesError = (payload) => ({
     type: MOVIES_ERROR,
@@ -69,9 +61,8 @@ export const fetchMovies = () => {
     return async (dispatch, getState) => {
         try {
             dispatch(fetchMoviesLoading(true))
-            const response = fetchHelper("movies")
+            const response = await fetchHelper("movies")
             dispatch(fetchMoviesSuccess(response))
-            return response
         } catch (err) {
             dispatch(fetchMoviesError(err))
         } finally {
@@ -87,7 +78,6 @@ export const createMovie = (payload) => {
             const response = await fetchHelper("movies/add", "POST", payload)
             dispatch(createMovieSuccess(response))
             dispatch(fetchMovies())
-            return response
         } catch (err) {
             dispatch(createMovieError(err))
         } finally {
@@ -103,7 +93,6 @@ export const updateMovie = (payload) => {
             const response = await fetchHelper(`movies/update/${payload?.id}`, "POST", payload)
             dispatch(updateMovieSuccess(response))
             dispatch(fetchMovies())
-            return response
         } catch (err) {
             dispatch(updateMovieError(err))
         } finally {
