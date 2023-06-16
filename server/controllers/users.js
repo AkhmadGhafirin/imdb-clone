@@ -26,6 +26,7 @@ class UserController {
     static async login(req, res, next) {
         try {
             const { email, password } = req.body
+            console.log(req.body, 'login body');
             if (!email) throw { name: 'LoginErrorEmpty', type: 'emptyEmail' }
             if (!password) throw { name: 'LoginErrorEmpty', type: 'emptyPassword' }
 

@@ -1,8 +1,6 @@
 import {
-    GENRES_ERROR,
     GENRES_LOADING,
     GENRES_SUCCESS,
-    GENRE_CREATE_ERROR,
     GENRE_CREATE_LOADING,
     GENRE_CREATE_SUCCESS
 } from "../action/actionTypes"
@@ -10,7 +8,8 @@ import {
 const initialState = {
     genres: [],
     loading: false,
-    error: ''
+    errorMessage: '',
+    isError: false
 }
 
 const genreReducer = (state = initialState, action) => {
@@ -19,29 +18,17 @@ const genreReducer = (state = initialState, action) => {
             return {
                 ...state,
                 genres: action.payload,
-                error: '',
                 loading: false
             }
         case GENRE_CREATE_SUCCESS:
             return {
                 ...state,
-                genres: [],
-                error: '',
-                loading: false
-            }
-        case GENRES_ERROR:
-        case GENRE_CREATE_ERROR:
-            return {
-                ...state,
-                genres: [],
-                error: action.payload,
                 loading: false
             }
         case GENRES_LOADING:
         case GENRE_CREATE_LOADING:
             return {
                 ...state,
-                error: '',
                 loading: action.payload
             }
         default:

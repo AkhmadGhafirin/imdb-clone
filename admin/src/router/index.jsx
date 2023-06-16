@@ -50,6 +50,19 @@ const router = createBrowserRouter([
       return null;
     },
   },
+  {
+    path: "*",
+    element: (
+      <>
+        <div
+          style={{ minHeight: "100vh" }}
+          className="d-flex flex-column justify-content-center"
+        >
+          <h1 className="text-center">Page Not Found</h1>
+        </div>
+      </>
+    ),
+  },
 ]);
 
 export default router;

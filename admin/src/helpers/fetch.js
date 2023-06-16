@@ -5,8 +5,15 @@ export const fetchHelper = (url = "", method = "GET", data = {}) => {
     if (method !== "GET") {
         option = {
             method,
-            Headers: { "Content-Type": "application/json" },
+            headers: { "Content-Type": "application/json" },
             body: JSON.stringify(data)
+        }
+    }
+
+    if (localStorage.getItem('access_token')) {
+        option.headers = {
+            "Content-Type": "application/json",
+            "access_token": localStorage.getItem('access_token')
         }
     }
 

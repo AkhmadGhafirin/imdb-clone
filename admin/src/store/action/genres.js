@@ -2,20 +2,13 @@ import { fetchHelper } from "../../helpers/fetch";
 
 import {
     GENRES_SUCCESS,
-    GENRES_ERROR,
     GENRES_LOADING,
     GENRE_CREATE_SUCCESS,
-    GENRE_CREATE_ERROR,
     GENRE_CREATE_LOADING,
 } from "./actionTypes";
 
 export const fetchGenresSuccess = (payload) => ({
     type: GENRES_SUCCESS,
-    payload
-})
-
-export const fetchGenresError = (payload) => ({
-    type: GENRES_ERROR,
     payload
 })
 
@@ -29,18 +22,13 @@ export const createGenreSuccess = (payload) => ({
     payload
 })
 
-export const createGenreError = (payload) => ({
-    type: GENRE_CREATE_ERROR,
-    payload
-})
-
 export const createGenreLoading = (payload) => ({
     type: GENRE_CREATE_LOADING,
     payload
 })
 
 export const fetchGenres = () => {
-    return async (dispatch, getState) => {
+    return async (dispatch) => {
         try {
             dispatch(fetchGenresLoading(true))
             const response = await fetchHelper("genres")
@@ -54,7 +42,7 @@ export const fetchGenres = () => {
 }
 
 export const createGenre = (payload) => {
-    return async (dispatch, getState) => {
+    return async (dispatch) => {
         try {
             dispatch(createGenreLoading(true))
             const response = await fetchHelper("genres/add", "POST", payload)

@@ -4,13 +4,13 @@ const GenreRow = ({ genre, index }) => {
   return (
     <tr>
       <td>{index + 1}</td>
-      <td>{genre.name}</td>
+      <td>{genre?.name}</td>
       <td>
         <div className="d-flex justify-content-center">
-          <Button variant="outline-warning" className="me-1">
+          <Button size="sm" variant="outline-warning" className="me-1">
             Edit
           </Button>
-          <Button variant="outline-danger" className="ms-1">
+          <Button size="sm" variant="outline-danger" className="ms-1">
             Delete
           </Button>
         </div>

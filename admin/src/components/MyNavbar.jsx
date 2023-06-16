@@ -3,6 +3,10 @@ import { NavLink, useNavigate } from "react-router-dom";
 
 const MyNavbar = () => {
   const navigate = useNavigate();
+  const handleLogout = () => {
+    localStorage.clear();
+    navigate("/login");
+  };
   return (
     <>
       <Navbar bg="light" className="shadow">
@@ -49,7 +53,8 @@ const MyNavbar = () => {
             </Nav.Item>
             <Nav.Item className="mx-2">
               <NavLink
-                to={"/"}
+                // to={"/"}
+                onClick={handleLogout}
                 style={({ isActive }) => ({
                   textDecoration: "none",
                   color: isActive ? "black" : "grey",

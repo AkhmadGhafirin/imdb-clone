@@ -23,9 +23,9 @@ const GenresPage = () => {
         <Table responsive bordered>
           <thead>
             <tr>
-              <th>Id</th>
+              <th style={{ width: "10px" }}>Id</th>
               <th>Name</th>
-              <th>Actions</th>
+              <th style={{ width: "50px" }}>Actions</th>
             </tr>
           </thead>
           <tbody>

@@ -1,8 +1,15 @@
 import { useState } from "react";
 import { Card, Form, Button } from "react-bootstrap";
+import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
+import { loginUser } from "../store/action/users";
+import { toast } from "react-toastify";
+import { Loading } from "../components";
 
 const LoginPage = () => {
+  const { loading } = useSelector((state) => state.users);
+  const dispatch = useDispatch();
+
   const navigate = useNavigate();
   const [form, setForm] = useState({
     email: "",
@@ -24,10 +31,18 @@ const LoginPage = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    console.log(form, "<<<< login");
-    localStorage.setItem("access_token", "dasdasdas");
-    navigate("/");
+    try {
+      await dispatch(loginUser(form));
+      navigate("/");
+    } catch (err) {
+      console.log(err, '<<<< error di login page');
+      toast.error(err?.message || "Internal Server Error");
+    }
   };
+
+  if (loading) {
+    return <Loading />;
+  }
 
   return (
     <>

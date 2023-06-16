@@ -6,8 +6,8 @@ const MovieRow = ({ movie, index }) => {
       <td>{index + 1}</td>
       <td>{movie?.title}</td>
       <td>{movie?.synopsis}</td>
-      <td>{movie?.genreId}</td>
-      <td>{movie?.authorId}</td>
+      <td>{movie?.Genre?.name}</td>
+      <td>{movie?.User?.username}</td>
       <td>
         <img
           alt={movie?.title}
@@ -17,11 +17,11 @@ const MovieRow = ({ movie, index }) => {
         />
       </td>
       <td>
-        <div className="d-flex justify-content-center">
-          <Button variant="outline-warning" className="me-1">
+        <div className="d-flex  justify-content-center">
+          <Button size="sm" variant="outline-warning" className="me-1">
             Edit
           </Button>
-          <Button variant="outline-danger" className="ms-1">
+          <Button size="sm" variant="outline-danger" className="ms-1">
             Delete
           </Button>
         </div>

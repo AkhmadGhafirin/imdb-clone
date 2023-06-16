@@ -10,7 +10,7 @@ const DashboardPage = () => {
 
   useEffect(() => {
     dispatch(fetchMovies());
-  }, []);
+  }, [dispatch]);
 
   if (loading) {
     return <Loading />;
@@ -20,16 +20,16 @@ const DashboardPage = () => {
     <>
       <Container fluid className="p-4">
         <h3>Movie List</h3>
-        <Table responsive bordered>
+        <Table striped responsive bordered>
           <thead>
             <tr>
-              <th>Id</th>
+              <th style={{ width: "10px" }}>Id</th>
               <th>Title</th>
               <th>Synopsis</th>
               <th>Genre</th>
               <th>Author</th>
               <th>Image</th>
-              <th>Actions</th>
+              <th style={{ width: "50px" }}>Actions</th>
             </tr>
           </thead>
           <tbody>

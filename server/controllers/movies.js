@@ -107,11 +107,25 @@ class MovieController {
             const { title, synopsis, trailerUrl, imgUrl, rating, genreId, casts } = req.body
             const { id: authorId } = req.userData
 
+            const findMovie = await Movie.findOne({ where: { id } }, { transaction: t })
+            if (!findMovie) throw { name: 'NotFound' }
+
             await Movie.update(
                 { title, synopsis, trailerUrl, imgUrl, rating, genreId, authorId },
                 { where: { id } },
                 { transaction: t }
             )
+
+            await Cast.destroy({ where: { movieId: id } }, { transaction: t })
+
+            const insertCasts = casts.map(el => {
+                el.movieId = createdMovie.id
+                return el
+            })
+
+            await Cast.bulkCreate(insertCasts, {
+                transaction: t
+            })
 
             await t.commit()
 
@@ -128,7 +142,12 @@ class MovieController {
         const t = await sequelize.transaction()
         try {
             const { id } = req.params
+
+            const findMovie = await Movie.findOne({ where: { id } }, { transaction: t })
+            if (!findMovie) throw { name: 'NotFound' }
+
             await Movie.destroy({ where: { id } }, { transaction: t })
+
             await t.commit()
 
             res.status(200).json({
