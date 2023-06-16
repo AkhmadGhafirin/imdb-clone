@@ -18,6 +18,8 @@ module.exports = {
       },
       movieId: {
         type: Sequelize.INTEGER,
+        onUpdate: 'CASCADE',
+        onDelete: 'CASCADE',
         references: {
           model: 'Movies',
           key: 'id'

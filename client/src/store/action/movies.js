@@ -7,7 +7,7 @@ import {
     MOVIE_SUCCESS,
     MOVIE_ERROR,
     MOVIE_LOADING
-} from "./types";
+} from "./actionTypes";
 
 export const fetchMoviesSuccess = (payload) => ({
     type: MOVIES_SUCCESS,

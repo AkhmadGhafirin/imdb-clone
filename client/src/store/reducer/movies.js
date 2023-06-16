@@ -5,7 +5,7 @@ import {
     MOVIE_ERROR,
     MOVIE_LOADING,
     MOVIE_SUCCESS
-} from "../action/types";
+} from "../action/actionTypes";
 
 const initialState = {
     movies: [],

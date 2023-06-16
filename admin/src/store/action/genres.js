@@ -7,7 +7,7 @@ import {
     GENRE_CREATE_SUCCESS,
     GENRE_CREATE_ERROR,
     GENRE_CREATE_LOADING,
-} from "./types";
+} from "./actionTypes";
 
 export const fetchGenresSuccess = (payload) => ({
     type: GENRES_SUCCESS,

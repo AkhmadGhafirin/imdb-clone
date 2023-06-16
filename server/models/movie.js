@@ -14,8 +14,8 @@ module.exports = (sequelize, DataTypes) => {
      */
     static associate(models) {
       Movie.belongsTo(models.User, { foreignKey: 'authorId' })
-      Movie.belongsTo(models.Genre, { foreignKey: 'genreId' })
-      Movie.hasMany(models.Cast, { foreignKey: 'movieId' })
+      Movie.belongsTo(models.Genre, { foreignKey: 'genreId', onUpdate: 'CASCADE', onDelete: 'CASCADE' })
+      Movie.hasMany(models.Cast, { foreignKey: 'movieId', onUpdate: 'CASCADE', onDelete: 'CASCADE' })
     }
   }
   Movie.init({

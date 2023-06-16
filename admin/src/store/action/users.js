@@ -7,7 +7,7 @@ import {
     USER_REGISTER_SUCCESS,
     USER_REGISTER_ERROR,
     USER_REGISTER_LOADING
-} from "./types";
+} from "./actionTypes";
 
 export const loginUserSuccess = (payload) => ({
     type: USERS_LOGIN_SUCCESS,

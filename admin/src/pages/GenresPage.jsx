@@ -30,7 +30,7 @@ const GenresPage = () => {
           </thead>
           <tbody>
             {genres?.map((genre, index) => (
-              <GenreRow key={genre.id} movie={genre} index={index} />
+              <GenreRow key={genre.id} genre={genre} index={index} />
             ))}
           </tbody>
         </Table>

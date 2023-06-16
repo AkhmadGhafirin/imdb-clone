@@ -32,6 +32,8 @@ module.exports = {
       },
       genreId: {
         type: Sequelize.INTEGER,
+        onUpdate: 'CASCADE',
+        onDelete: 'CASCADE',
         references: {
           model: 'Genres',
           key: 'id'
@@ -41,6 +43,7 @@ module.exports = {
         type: Sequelize.INTEGER,
         references: {
           model: 'Users',
+
           key: 'id'
         }
       },

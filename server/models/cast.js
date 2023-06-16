@@ -10,7 +10,7 @@ module.exports = (sequelize, DataTypes) => {
      * The `models/index` file will call this method automatically.
      */
     static associate(models) {
-      Cast.belongsTo(models.Movie, { foreignKey: 'movieId' })
+      Cast.belongsTo(models.Movie, { foreignKey: 'movieId', onUpdate: 'CASCADE', onDelete: 'CASCADE' })
     }
   }
   Cast.init({

@@ -5,7 +5,7 @@ import {
     USER_REGISTER_ERROR,
     USER_REGISTER_LOADING,
     USER_REGISTER_SUCCESS
-} from "../action/types"
+} from "../action/actionTypes"
 
 const initialState = {
     user: {},

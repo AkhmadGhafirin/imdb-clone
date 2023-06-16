@@ -1,6 +1,6 @@
 'use strict'
 
-const { Movie, User, Cast, Genre } = require('../models')
+const { Movie, User, Cast, Genre, sequelize } = require('../models')
 
 class MovieController {
     static async fetchMovies(req, res, next) {
@@ -72,25 +72,70 @@ class MovieController {
     }
 
     static async createMovie(req, res, next) {
+        const t = await sequelize.transaction()
         try {
+            const { title, synopsis, trailerUrl, imgUrl, rating, genreId, casts } = req.body
+            const { id: authorId } = req.userData
+            const createdMovie = await Movie.create({
+                title, synopsis, trailerUrl, imgUrl, rating, genreId, authorId
+            }, { transaction: t })
 
+            const insertCasts = casts.map(el => {
+                el.movieId = createdMovie.id
+                return el
+            })
+
+            await Cast.bulkCreate(insertCasts, {
+                transaction: t
+            })
+
+            await t.commit()
+
+            res.status(201).json({
+                message: 'Successfully create movie'
+            })
         } catch (err) {
+            await t.rollback()
             next(err)
         }
     }
 
     static async updateMovie(req, res, next) {
+        const t = await sequelize.transaction()
         try {
+            const { id } = req.params
+            const { title, synopsis, trailerUrl, imgUrl, rating, genreId, casts } = req.body
+            const { id: authorId } = req.userData
 
+            await Movie.update(
+                { title, synopsis, trailerUrl, imgUrl, rating, genreId, authorId },
+                { where: { id } },
+                { transaction: t }
+            )
+
+            await t.commit()
+
+            res.status(200).json({
+                message: 'Successfully update movie'
+            })
         } catch (err) {
+            await t.rollback()
             next(err)
         }
     }
 
     static async deleteMovie(req, res, next) {
+        const t = await sequelize.transaction()
         try {
+            const { id } = req.params
+            await Movie.destroy({ where: { id } }, { transaction: t })
+            await t.commit()
 
+            res.status(200).json({
+                message: 'Successfully delete movie'
+            })
         } catch (err) {
+            await t.rollback()
             next(err)
         }
     }

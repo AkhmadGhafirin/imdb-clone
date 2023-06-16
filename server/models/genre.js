@@ -10,11 +10,25 @@ module.exports = (sequelize, DataTypes) => {
      * The `models/index` file will call this method automatically.
      */
     static associate(models) {
-      Genre.hasMany(models.Movie, { foreignKey: 'genreId' })
+      Genre.hasMany(models.Movie, { foreignKey: 'genreId', onUpdate: 'CASCADE', onDelete: 'CASCADE' })
     }
   }
   Genre.init({
-    name: DataTypes.STRING
+    name: {
+      type: DataTypes.STRING,
+      allowNull: false,
+      unique: {
+        msg: 'Name already exists'
+      },
+      validate: {
+        notNull: {
+          msg: 'Name is required'
+        },
+        notEmpty: {
+          msg: 'Name is required'
+        },
+      }
+    }
   }, {
     sequelize,
     modelName: 'Genre',

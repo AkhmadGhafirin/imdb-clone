@@ -1,7 +1,6 @@
 'use strict'
 
-const { Genre } = require('../models')
-const { sequelize } = require('sequelize')
+const { Genre, Movie, Cast, sequelize } = require('../models')
 
 class GenreController {
     static async fetchGenres(req, res, next) {
@@ -44,17 +43,22 @@ class GenreController {
     }
 
     static async deleteGenre(req, res, next) {
+        const t = await sequelize.transaction()
         try {
-            const findGenre = await Genre.findOne({ where: { id } })
+            const { id } = req.params
+            const findGenre = await Genre.findOne({ where: { id } }, { transaction: t })
 
             if (!findGenre) throw { name: 'NotFound' }
 
-            const deletedGenre = await Genre.destroy({ where: { id } })
+            await Genre.destroy({ where: { id } }, { transaction: t })
+
+            await t.commit()
 
             res.status(200).json({
                 message: 'Successfully delete genre'
             })
         } catch (err) {
+            await t.rollback()
             next(err)
         }
     }

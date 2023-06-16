@@ -8,7 +8,7 @@ import {
     MOVIE_UPDATE_ERROR,
     MOVIE_UPDATE_LOADING,
     MOVIE_UPDATE_SUCCESS
-} from "../action/types";
+} from "../action/actionTypes";
 
 const initialState = {
     movies: [],

@@ -5,7 +5,7 @@ import {
     GENRE_CREATE_ERROR,
     GENRE_CREATE_LOADING,
     GENRE_CREATE_SUCCESS
-} from "../action/types"
+} from "../action/actionTypes"
 
 const initialState = {
     genres: [],
