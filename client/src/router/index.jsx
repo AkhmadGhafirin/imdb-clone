@@ -11,10 +11,23 @@ const router = createBrowserRouter([
         element: <DashboardPage />,
       },
       {
-        path: "detail/:slug",
+        path: "movies/:slug",
         element: <DetailPage />,
       },
     ],
+  },
+  {
+    path: "*",
+    element: (
+      <>
+        <div
+          style={{ minHeight: "100vh" }}
+          className="d-flex flex-column justify-content-center"
+        >
+          <h1 className="text-center">Page Not Found</h1>
+        </div>
+      </>
+    ),
   },
 ]);
 

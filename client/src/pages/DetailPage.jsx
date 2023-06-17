@@ -1,53 +1,81 @@
+import { useEffect, useState } from "react";
 import {
   Container,
   Row,
   Col,
   Image,
   Badge,
-  ListGroup,
   Button,
 } from "react-bootstrap";
+import { useDispatch, useSelector } from "react-redux";
+import { fetchMovieDetail } from "../store/action/movies";
+import { useParams } from "react-router-dom";
+import { toast } from "react-toastify";
+import { Loading, CastCard } from "../components";
+
 const DetailPage = () => {
+  const loading = useSelector((state) => state.movies?.loading);
+  const dispatch = useDispatch();
+  const { slug } = useParams();
+  const [movie, setMovie] = useState({});
+
+  const fetchData = async () => {
+    try {
+      const data = await dispatch(fetchMovieDetail(slug));
+      setMovie(data);
+    } catch (err) {
+      toast.error(err);
+    }
+  };
+
+  useEffect(() => {
+    fetchData();
+  }, []);
+
+  if (loading) {
+    return <Loading />;
+  }
+
   return (
     <>
       <Container className="py-5">
         <Row>
           <Col md={4}>
             <div className="d-flex flex-column">
-              <Image
-                src="https://m.media-amazon.com/images/M/MV5BNzQ1ODUzYjktMzRiMS00ODNiLWI4NzQtOTRiN2VlNTNmODFjXkEyXkFqcGdeQXVyMTkxNjUyNQ@@._V1_FMjpg_UX600_.jpg"
-                alt="Movie Poster"
-                fluid
-              />
-              <Button className="mt-4" variant="warning">
+              <Image src={movie?.imgUrl} alt={movie?.title} fluid />
+              <Button
+                href={movie?.trailerUrl}
+                target="_blank_"
+                className="mt-4"
+                variant="warning"
+              >
                 Watch Trailer
               </Button>
             </div>
           </Col>
           <Col md={8}>
             <div className="d-flex justify-content-between">
-              <h2 className="text-light">Movie Title</h2>
-              {/* <Button variant="warning">Watch Trailer</Button> */}
+              <h2 className="text-light">{movie?.title}</h2>
             </div>
             <div className="mb-3 text-light">
               <Badge bg="warning" text="dark">
-                Genre
+                {movie?.Genre?.name}
               </Badge>
             </div>
             <div className="text-light">
-              <strong>Rating:</strong> 8.5/10
+              <strong>Rating:</strong> {movie?.rating}/10
             </div>
             <div className="mt-4 text-light">
-              <h4>Plot Summary</h4>
-              <p>Movie plot summary goes here.</p>
+              <h4>Synopsis</h4>
+              <p>{movie?.synopsis}</p>
             </div>
             <div className="mt-4 text-light">
               <h4>Cast</h4>
-              <ListGroup horizontal>
-                <ListGroup.Item>Actor 1</ListGroup.Item>
-                <ListGroup.Item>Actor 2</ListGroup.Item>
-                <ListGroup.Item>Actor 3</ListGroup.Item>
-              </ListGroup>
+              <Row>
+                {movie?.Casts?.map((cast) => (
+                  <CastCard key={cast?.id} cast={cast} />
+                ))}
+              </Row>
             </div>
           </Col>
         </Row>

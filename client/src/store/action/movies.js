@@ -1,21 +1,15 @@
 import { fetchHelper } from "../../helpers/fetch";
+import { errorHelper } from "../../helpers/error";
 
 import {
     MOVIES_SUCCESS,
-    MOVIES_ERROR,
     MOVIES_LOADING,
     MOVIE_SUCCESS,
-    MOVIE_ERROR,
     MOVIE_LOADING
 } from "./actionTypes";
 
 export const fetchMoviesSuccess = (payload) => ({
     type: MOVIES_SUCCESS,
-    payload
-})
-
-export const fetchMoviesError = (payload) => ({
-    type: MOVIES_ERROR,
     payload
 })
 
@@ -26,11 +20,6 @@ export const fetchMoviesLoading = (payload) => ({
 
 export const fetchMovieDetailSuccess = (payload) => ({
     type: MOVIE_SUCCESS,
-    payload
-})
-
-export const fetchMovieDetailError = (payload) => ({
-    type: MOVIE_ERROR,
     payload
 })
 
@@ -46,21 +35,22 @@ export const fetchMovies = () => {
             const response = await fetchHelper("movies")
             dispatch(fetchMoviesSuccess(response))
         } catch (err) {
-            dispatch(fetchMoviesError(err))
+            throw errorHelper(err)
         } finally {
             dispatch(fetchMoviesLoading(false))
         }
     }
 }
 
-export const fetchMovieDetail = () => {
+export const fetchMovieDetail = (slug) => {
     return async (dispatch, getState) => {
         try {
             dispatch(fetchMovieDetailLoading(true))
-            const response = await fetchHelper("movies/slug")
-            dispatch(fetchMovieDetailSuccess(response))
+            const response = await fetchHelper(`movies/${slug}`)
+            // dispatch(fetchMovieDetailSuccess(response))
+            return response
         } catch (err) {
-            dispatch(fetchMovieDetailError(err))
+            throw errorHelper(err)
         } finally {
             dispatch(fetchMovieDetailLoading(false))
         }

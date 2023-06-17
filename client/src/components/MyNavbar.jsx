@@ -9,7 +9,7 @@ const MyNavbar = () => {
         <Container fluid>
           <Navbar.Brand
             onClick={() => navigate("/")}
-            style={{ cursor: "pointer" }}
+            style={{ cursor: "pointer", color: "#FFC107" }}
           >
             <strong>Imdb</strong>
           </Navbar.Brand>

@@ -2,14 +2,23 @@ import { MovieCard, Loading } from "../components";
 import { Container, Row } from "react-bootstrap";
 import { useDispatch, useSelector } from "react-redux";
 import { useEffect } from "react";
-import { fetchMovies, fetchMovieDetail } from "../store/action/movies";
+import { fetchMovies } from "../store/action/movies";
+import { toast } from "react-toastify";
 
 const DashboardPage = () => {
-  const { movies, loading, error } = useSelector((state) => state);
+  const { movies, loading } = useSelector((state) => state.movies);
   const dispatch = useDispatch();
 
+  const fetchData = async () => {
+    try {
+      await dispatch(fetchMovies());
+    } catch (err) {
+      toast.error(err);
+    }
+  };
+
   useEffect(() => {
-    dispatch(fetchMovies());
+    fetchData();
   }, []);
 
   if (loading) {
