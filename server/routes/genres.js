@@ -5,6 +5,7 @@ const authentication = require('../middlewares/authentication')
 const router = express.Router()
 
 router.get('/', authentication, GenreController.fetchGenres)
+router.get('/:id', authentication, GenreController.fetchGenreById)
 router.post('/', authentication, GenreController.createGenre)
 router.put('/:id', authentication, GenreController.updateGenre)
 router.delete('/:id', authentication, GenreController.deleteGenre)

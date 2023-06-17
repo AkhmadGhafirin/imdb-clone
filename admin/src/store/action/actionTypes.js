@@ -7,6 +7,10 @@ export const USER_REGISTER_LOADING = "users/registerLoading";
 // Action Type for Movies
 export const MOVIES_SUCCESS = "movies/fetchSuccess";
 export const MOVIES_LOADING = "movies/fetchLoading";
+export const MOVIE_SUCCESS = "movies/fetchByIdSuccess";
+export const MOVIE_LOADING = "movies/fetchByIdLoading";
+export const MOVIE_DELETE_SUCCESS = "movies/deleteSuccess";
+export const MOVIE_DELETE_LOADING = "movies/deleteLoading";
 export const MOVIE_CREATE_SUCCESS = "movies/createSuccess";
 export const MOVIE_CREATE_LOADING = "movies/createLoading";
 export const MOVIE_UPDATE_SUCCESS = "movies/updateSuccess";
@@ -15,5 +19,11 @@ export const MOVIE_UPDATE_LOADING = "movies/updateLoading";
 // Action Type for Genres
 export const GENRES_SUCCESS = "genres/fetchSuccess";
 export const GENRES_LOADING = "genres/fetchLoading";
+export const GENRE_SUCCESS = "genres/fetchByIdSuccess";
+export const GENRE_LOADING = "genres/fetchByIdLoading";
 export const GENRE_CREATE_SUCCESS = "genres/createSuccess";
 export const GENRE_CREATE_LOADING = "genres/createLoading";
+export const GENRE_UPDATE_SUCCESS = "genres/updateSuccess";
+export const GENRE_UPDATE_LOADING = "genres/updateLoading";
+export const GENRE_DELETE_SUCCESS = "genres/deleteSuccess";
+export const GENRE_DELETE_LOADING = "genres/deleteLoading";

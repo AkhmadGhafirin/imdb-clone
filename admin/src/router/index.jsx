@@ -3,6 +3,7 @@ import {
   MovieFormPage,
   LoginPage,
   GenresPage,
+  GenreFormPage,
   RegisterPage,
 } from "../pages";
 import Layout from "../components/Layout";
@@ -33,6 +34,14 @@ const router = createBrowserRouter([
       {
         path: "genres",
         element: <GenresPage />,
+      },
+      {
+        path: "genres/add",
+        element: <GenreFormPage />,
+      },
+      {
+        path: "genres/edit/:id",
+        element: <GenreFormPage />,
       },
       {
         path: "register",

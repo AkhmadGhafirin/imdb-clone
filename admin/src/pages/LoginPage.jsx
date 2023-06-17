@@ -35,8 +35,7 @@ const LoginPage = () => {
       await dispatch(loginUser(form));
       navigate("/");
     } catch (err) {
-      console.log(err, '<<<< error di login page');
-      toast.error(err?.message || "Internal Server Error");
+      toast.error(err);
     }
   };
 

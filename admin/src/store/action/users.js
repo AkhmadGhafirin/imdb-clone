@@ -1,3 +1,4 @@
+import { errorHelper } from "../../helpers/error";
 import { fetchHelper } from "../../helpers/fetch";
 
 import {
@@ -35,7 +36,7 @@ export const loginUser = (payload) => {
             localStorage.setItem("access_token", response?.access_token);
             dispatch(loginUserSuccess(response))
         } catch (err) {
-            throw await JSON.parse(err)
+            throw errorHelper(err)
         } finally {
             dispatch(loginUserLoading(false))
         }
@@ -49,7 +50,7 @@ export const registerUser = (payload) => {
             const response = await fetchHelper("register", "POST", payload)
             dispatch(registerUserSuccess(response))
         } catch (err) {
-            throw await JSON.parse(err)
+            throw errorHelper(err)
         } finally {
             dispatch(registerUserLoading(false))
         }

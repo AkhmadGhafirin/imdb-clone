@@ -1,9 +1,25 @@
 import { Button, Col, Form, Row, Container } from "react-bootstrap";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import CastForm from "../components/CastForm";
+import { useDispatch, useSelector } from "react-redux";
+import { toast } from "react-toastify";
+import {
+  createMovie,
+  fetchMovieById,
+  updateMovie,
+} from "../store/action/movies";
+import { useNavigate, useParams } from "react-router-dom";
+import { Loading } from "../components";
+import { fetchGenres } from "../store/action/genres";
 
 const MovieFormPage = () => {
+  const { id } = useParams();
   const [validated, setValidated] = useState(false);
+  const loadingMovies = useSelector((state) => state.movies?.loading);
+  const loadingGenres = useSelector((state) => state.genres?.loading);
+  const genres = useSelector((state) => state.genres?.genres);
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
   const [form, setForm] = useState({
     title: "",
     synopsis: "",
@@ -17,30 +33,40 @@ const MovieFormPage = () => {
     {
       id: 1,
       name: "",
-      profilePicture: "",
+      profilePict: "",
     },
   ]);
 
   const ratings = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
 
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-    const form = e.currentTarget;
-    if (form.checkValidity() === false) {
-      e.preventDefault();
-      e.stopPropagation();
+  const fetchData = async () => {
+    try {
+      await dispatch(fetchGenres());
+      if (id) {
+        const data = await dispatch(fetchMovieById(id));
+        console.log(data, "<<<< movie detail data >>>>");
+        setForm({
+          title: data?.title,
+          synopsis: data?.synopsis,
+          imgUrl: data?.imgUrl,
+          trailerUrl: data?.trailerUrl,
+          rating: data?.rating,
+          genreId: data?.genreId,
+        });
+        const dataCasts = data?.Casts?.map((el) => {
+          delete el.movieId;
+          return el;
+        });
+        setCasts(dataCasts);
+      }
+    } catch (err) {
+      toast.error(err);
     }
-
-    setValidated(true);
-
-    // const response = await fetch("http://localhost:3000/movies", {
-    //   method: "POST",
-    //   headers: { "Content-Type": "application/json" },
-    //   body: JSON.stringify(form),
-    // });
-    // const data = await response.json();
-    // console.log(data, "<<<<<<< berhasil post");
   };
+
+  useEffect(() => {
+    fetchData();
+  }, []);
 
   const handleOnChange = (e) => {
     const { value, name } = e.target;
@@ -73,7 +99,7 @@ const MovieFormPage = () => {
       {
         id,
         name: "",
-        profilePicture: "",
+        profilePict: "",
       },
     ]);
   };
@@ -88,11 +114,61 @@ const MovieFormPage = () => {
     setCasts(filterCasts);
   };
 
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    setValidated(true);
+    try {
+      if (checkValidate()) {
+        const payload = { ...form };
+        payload.casts = [...casts];
+        console.log(payload, "<<<< movie payload");
+        if (id) {
+          await dispatch(updateMovie(payload, id));
+          toast.success("Successfully update movie");
+        } else {
+          await dispatch(createMovie(payload));
+          toast.success("Successfully create new movie");
+        }
+        navigate("/");
+      }
+    } catch (err) {
+      toast.error(err);
+    }
+  };
+
+  const checkValidate = () => {
+    const { title, synopsis, imgUrl, trailerUrl, rating, genreId } = form;
+    const validateCasts = casts?.filter((cast) => {
+      return !cast?.name || !cast.profilePict;
+    });
+
+    return (
+      title !== undefined &&
+      title !== "" &&
+      synopsis !== undefined &&
+      synopsis !== "" &&
+      imgUrl !== undefined &&
+      imgUrl !== "" &&
+      trailerUrl !== undefined &&
+      trailerUrl !== "" &&
+      rating !== undefined &&
+      rating !== "" &&
+      genreId !== undefined &&
+      genreId !== "" &&
+      validateCasts.length === 0
+    );
+  };
+
+  if (loadingMovies || loadingGenres) {
+    return <Loading />;
+  }
+
   return (
     <>
       <Container className="py-3">
         <Form noValidate validated={validated} onSubmit={handleSubmit}>
-          <h5>Movie</h5>
+          <h2 className="text-center">{id ? "Edit Movie" : "Create Movie"}</h2>
+          <h5 className="mt-5">Movie</h5>
           <Form.Group className="mb-3">
             <Form.Label>Title</Form.Label>
             <Form.Control
@@ -116,6 +192,7 @@ const MovieFormPage = () => {
               placeholder="Enter Synopsis"
               name="synopsis"
               value={form?.synopsis}
+              style={{ minHeight: "150px" }}
               type="text"
               autoComplete="off"
               required
@@ -192,8 +269,11 @@ const MovieFormPage = () => {
                 <option disabled value="">
                   Choose...
                 </option>
-                <option value="1">Comedy</option>
-                <option value="1">Action</option>
+                {genres?.map((genre) => (
+                  <option key={genre?.id} value={genre?.id}>
+                    {genre?.name}
+                  </option>
+                ))}
               </Form.Select>
               <Form.Control.Feedback type="invalid">
                 Genre is required

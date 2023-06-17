@@ -12,6 +12,16 @@ class GenreController {
         }
     }
 
+    static async fetchGenreById(req, res, next) {
+        try {
+            const { id } = req.params
+            const genre = await Genre.findOne({ where: { id } })
+            res.status(200).json(genre)
+        } catch (err) {
+            next(err)
+        }
+    }
+
     static async createGenre(req, res, next) {
         try {
             const { name } = req.body

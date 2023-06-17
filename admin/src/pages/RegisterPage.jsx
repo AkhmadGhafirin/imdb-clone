@@ -1,7 +1,14 @@
 import { useState } from "react";
 import { Card, Form, Button } from "react-bootstrap";
+import { Loading } from "../components";
+import { toast } from "react-toastify";
+import { useDispatch, useSelector } from "react-redux";
+import { registerUser } from "../store/action/users";
 
 const RegisterPage = () => {
+  const { loading } = useSelector((state) => state.users);
+  const dispatch = useDispatch();
+
   const [form, setForm] = useState({
     username: "",
     email: "",
@@ -25,8 +32,24 @@ const RegisterPage = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    console.log(form, "<<<< register");
+    try {
+      await dispatch(registerUser(form));
+      setForm({
+        username: "",
+        email: "",
+        password: "",
+        phoneNumber: "",
+        address: "",
+      });
+      toast.success("Successfully register new admin");
+    } catch (err) {
+      toast.error(err);
+    }
   };
+
+  if (loading) {
+    return <Loading />;
+  }
 
   return (
     <>
@@ -89,7 +112,6 @@ const RegisterPage = () => {
                       value={form?.phoneNumber}
                       name="phoneNumber"
                       autoComplete="off"
-                      required
                       onChange={handleOnChange}
                     />
                   </Form.Group>
@@ -103,7 +125,6 @@ const RegisterPage = () => {
                       value={form?.address}
                       name="address"
                       autoComplete="off"
-                      required
                       onChange={handleOnChange}
                     />
                   </Form.Group>

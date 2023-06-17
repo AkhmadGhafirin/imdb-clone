@@ -81,6 +81,7 @@ class MovieController {
             }, { transaction: t })
 
             const insertCasts = casts.map(el => {
+                delete el.id
                 el.movieId = createdMovie.id
                 return el
             })
@@ -119,7 +120,8 @@ class MovieController {
             await Cast.destroy({ where: { movieId: id } }, { transaction: t })
 
             const insertCasts = casts.map(el => {
-                el.movieId = createdMovie.id
+                delete el.id
+                el.movieId = id
                 return el
             })
 

@@ -35,8 +35,8 @@ const CastForm = ({ cast, castOnChange, removeCast }) => {
         <Form.Label>Profile Picture URL</Form.Label>
         <Form.Control
           placeholder="Enter Profile Picture URL"
-          name={`profilePicture-${cast?.id}`}
-          value={cast?.profilePicture}
+          name={`profilePict-${cast?.id}`}
+          value={cast?.profilePict}
           required
           type="text"
           autoComplete="off"
